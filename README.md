@@ -25,7 +25,7 @@ Range branch tool for processing forage clipping data - standardizing species na
 
 
 		# if you're lucky you can just run paste this line and it will all work:
-		git clone https://github.com/bcgov/forageConversionTool.git && cd forageConversionTool && python -m venv env && source env/bin/activate && pip install -r requirements.txt 
+		git clone https://github.com/bcgov/forageConversionTool.git && cd forageConversionTool && python3 -m venv env && source env/bin/activate && pip install -r requirements.txt 
 
 
 
