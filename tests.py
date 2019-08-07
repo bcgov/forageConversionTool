@@ -40,3 +40,7 @@ def test_can_get_all_input_file_headers_in_list():
 
 def test_can_get_all_db_columns_in_list():
 	assert False
+
+
+def test_can_suggest_better_word():
+	assert False

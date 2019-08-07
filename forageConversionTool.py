@@ -1,5 +1,6 @@
 import sqlite3
 import os
+import Levenshtein
 
 def connect_to_database(databaseName):
 	conn = sqlite3.connect(databaseName) # or use :memory: to put it in RAM
@@ -101,3 +102,28 @@ def create_table(cursor):
 		print("something else bad happened while creating forage data table")
 		print(e.message)
 
+
+def suggest_word(input_word, word_list):
+	word_score_dict = {}
+
+	for word in word_list:
+		word_score_dict[Levenshtein.distance(input_word, word)] = word
+
+	sorted_scores = sorted(word_score_dict.keys())
+	
+	index_of_winning_word = word_list.index(word_score_dict[sorted_scores[0]])
+	print('you entered ' + word + ' and maybe you meant ' +  word_list[index_of_winning_word])
+
+	return index_of_winning_word
+
+def suggest_sachins_way(input_word, word_list):
+	word_score_dict = {}
+	score_list = []
+	
+	for word in word_list:
+		score = Levenshtein.distance(input_word, word)
+		word_score_dict[score] = word
+		score_list.append(score)
+
+	index_of_winning_word = min(score_list)
+	print("you entered " + word + " and maybe you meant " + word_list[index_of_winning_word])
