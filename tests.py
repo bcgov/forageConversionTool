@@ -32,7 +32,7 @@ def test_can_delete_old_db():
 	assert (os.path.isfile('nancydb')) == False
 
 
-def test_input_file_has_all_the_right_headers()
+def test_input_file_has_all_the_right_headers():
 	assert False
 
 def test_can_get_all_input_file_headers_in_list():
